@@ -17,7 +17,10 @@ function emailRegister() {
             var ref = firebase.database().ref("Leader Board/" + user.uid);
             var arr = { 'admin': 'F', 'email': user.email, 'person_name': name, 'points': 0, 'streak': 0, 'uID': user.uid };
             ref.set(arr);
-            window.location = 'loggedIn.html';
+            setTimeout(function () {
+                window.location = 'loggedIn.html';
+            }, 1500);
+
         }
     });
 }
@@ -162,7 +165,7 @@ function checkUserLogin() {
         }
         else {
             if (t == 1000) {
-                document.getElementById('dummy').style.visibility='visible';
+                document.getElementById('dummy').style.visibility = 'visible';
                 clearInterval(interv);
             }
         }
