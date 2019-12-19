@@ -53,7 +53,7 @@ function checkUserLogin() {
         }
         else {
             if (t == 1000) {
-                document.getElementById('dummy').style.visibility='visible';
+                document.getElementById('dummy').style.visibility = 'visible';
                 clearInterval(interv);
             }
         }
