@@ -8,6 +8,26 @@ function sendPasswordChangeEmail() {
     });
 }
 
+function adminCheck() {
+    var user = firebase.auth().currentUser;
+    var ref = firebase.database().ref("Leader Board/" + user.uid);
+
+    ref.once("value").then(function (snapshot) {
+        var userX = snapshot.val();
+        if (userX.admin == 'F')
+            alert('You do not have administrator privileges');
+        else
+            window.location = 'adminPortal.html';
+    });
+}
+
+function userLogout() {
+    var user = firebase.auth().currentUser;
+    firebase.auth().signOut().then(function () {
+    }).catch(function (error) {
+    });
+}
+
 function checkUser() {
     var user;
     var t = 0;
@@ -37,44 +57,5 @@ function userLogout() {
     var user = firebase.auth().currentUser;
     firebase.auth().signOut().then(function () {
     }).catch(function (error) {
-    });
-}
-
-function checkUserLogin() {
-    var user;
-    var t = 0;
-    var temp;
-    var interv = setInterval(function () {
-        user = firebase.auth().currentUser;
-        t++;
-        if (user != null) {
-            window.location = 'iACM/loggedIn.html';
-            clearInterval(interv);
-        }
-        else {
-            if (t == 1000) {
-                document.getElementById('dummy').style.visibility = 'visible';
-                clearInterval(interv);
-            }
-        }
-    }, 1);
-}
-
-
-
-
-function resolve(path, obj = self, separator = '.') {
-    var properties = Array.isArray(path) ? path : path.split(separator)
-    return properties.reduce((prev, curr) => prev && prev[curr], obj)
-}
-
-function moveFbRecord(oldRef, newRef) {
-    oldRef.once('value', function (snap) {
-        if (snap.val() != null) {
-            newRef.set(snap.val(), function (error) {
-                if (!error) { oldRef.remove(); }
-                else if (typeof (console) !== 'undefined' && console.error) { console.error(error); }
-            });
-        }
     });
 }
