@@ -16,3 +16,24 @@ function emailLogin() {
         }
     });
 }
+
+
+function checkUserLogin() {
+    var user;
+    var t = 0;
+    var temp;
+    var interv = setInterval(function () {
+        user = firebase.auth().currentUser;
+        t++;
+        if (user != null) {
+            window.location = 'iACM/loggedIn.html';
+            clearInterval(interv);
+        }
+        else {
+            if (t == 1000) {
+                document.getElementById('dummy').style.visibility = 'visible';
+                clearInterval(interv);
+            }
+        }
+    }, 1);
+}
