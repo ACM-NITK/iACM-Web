@@ -285,3 +285,13 @@ function moveFbRecord(oldRef, newRef) {
         }
     });
 }
+
+function editProfile() {
+    var user = firebase.auth().currentUser;
+    if(user==NULL) {
+        document.getElementById("editprofile").style.visibility="hidden";
+    }
+    else {
+        document.getElementById("editprofile").style.visibility="visible";
+    }
+}
