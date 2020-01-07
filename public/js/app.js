@@ -298,13 +298,13 @@ function editProfile() {
 }
 
 function changeName() {
-    var newName = document.getElementById("loginName");
+    var newName = document.getElementById("loginName").innerHTML;
     var user = firebase.auth().currentUser;
     user.updateProfile({
         displayName:newName
     }).then(function() {
-        console.log("Name changed successfully!")
+        alert("Name changed successfully!")
     }, function(error) {
-        console.log("Error")
+        alert("Error")
     });
 }

@@ -39,6 +39,21 @@
             <span class="navbar-text">
             </span>
         </div>
+
+        <div class="btn-group dropleft">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                <img style="display:inline-block;max-height: 40px;" height="100%" src="../images/profilePic.png">
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Signed in as</a>
+                <a class="dropdown-item" href="#" ><b id='profileUserName'></b></a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" onclick="adminCheck()">Admin Portal</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" onclick="sendPasswordChangeEmail()">Change Password</a>
+                <a class="dropdown-item" href="../iACM.html" onclick="userLogout()">Sign Out</a>
+            </div>
+        </div>
     </nav>
 
     <div id="informationBox">
@@ -48,4 +63,31 @@
         <input type="text" class="fadeInDown" id="loginName" name="newName" placeholder="name"> <br>
         <input type="button" class="fadeInDown" value="Submit!" onclick="changeName()">
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCDGl1zQ6MWqZNP9OamRcDDDFiByqoAVMM",
+        authDomain: "appfirebaseproject-1c408.firebaseapp.com",
+        databaseURL: "https://appfirebaseproject-1c408.firebaseio.com",
+        projectId: "appfirebaseproject-1c408",
+        storageBucket: "appfirebaseproject-1c408.appspot.com",
+        messagingSenderId: "167249485710"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </body>
+
+  </dummy>
+  </html>
