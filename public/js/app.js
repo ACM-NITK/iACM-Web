@@ -129,7 +129,7 @@ function checkUser() {
         user = firebase.auth().currentUser;
         t++;
         if (user != null) {
-            document.getElementById('dummy').style.visibility = 'visible';
+            document.getElementById("editprofile").style.visibility = "visible";
             user = firebase.auth().currentUser;
             firebase.database().ref("Leader Board/" + user.uid + "/person_name").once('value', function (snapshot) {
                 document.getElementById('profileUserName').innerHTML = snapshot.val();
@@ -138,6 +138,7 @@ function checkUser() {
         }
         else {
             //document.getElementById('dummy').innerHTML = '';
+            document.getElementById("editprofile").style.visibility = "hidden";
             if (t == 1000) {
                 clearInterval(interv);
             }
@@ -294,4 +295,16 @@ function editProfile() {
     else {
         document.getElementById("editprofile").style.visibility="visible";
     }
+}
+
+function changeName() {
+    var newName = document.getElementById("loginName");
+    var user = firebase.auth().currentUser;
+    user.updateProfile({
+        displayName:newName
+    }).then(function() {
+        console.log("Name changed successfully!")
+    }, function(error) {
+        console.log("Error")
+    });
 }
