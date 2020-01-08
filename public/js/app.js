@@ -303,7 +303,9 @@ function changeName() {
     user.updateProfile({
         displayName:newName
     }).then(function() {
-        alert("Name changed successfully!")
+        document.getElementById('profileUserName').innerHTML = newName,
+        alert("Name changed successfully!"),
+        console.log(newName)
     }, function(error) {
         alert("Error")
     });
