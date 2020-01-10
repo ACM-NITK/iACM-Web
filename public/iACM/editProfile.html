@@ -56,13 +56,12 @@
         </div>
     </nav>
 
-    <div id="informationBox">
-        <h1 class="fadeInDown">Edit Profile</h1><br>
-        <h2 class="fadeInDown">Enter New Name</h2>
-        <br>
-        <input type="text" class="fadeInDown" id="loginName" name="newName" placeholder="name"> <br>
-        <input type="button" class="fadeInDown" value="Submit!" onclick="changeName()">
-    </div>
+    <form name="changeUserName" id="informationBox">
+      <h1 class="fadeInDown">Edit Profile</h1><br>
+      <h2 class="fadeInDown">Enter New Name</h2><br>
+      <input type="text" class="fadeInDown" id="loginName" name="newName" placeholder="name" required> <br>
+      <input type="button" class="fadeInDown" value="Submit!" onclick="changeName()">
+    </form>
 
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
     <script>

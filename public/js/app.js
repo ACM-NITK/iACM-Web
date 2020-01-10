@@ -298,15 +298,17 @@ function editProfile() {
 }
 
 function changeName() {
-    var newName = document.getElementById("loginName").innerHTML;
+    var newName = document.forms["changeUserName"]["newName"].value;
     var user = firebase.auth().currentUser;
-    user.updateProfile({
-        displayName:newName
-    }).then(function() {
-        document.getElementById('profileUserName').innerHTML = newName,
-        alert("Name changed successfully!"),
-        console.log(newName)
-    }, function(error) {
-        alert("Error")
-    });
+    try {
+        firebase.database().ref("Leader Board/" + user.uid).update({
+            person_name: newName,
+        })
+        document.getElementById('profileUserName').innerHTML = newName;
+        alert("Name changed successfully to \'"+newName+"\'");
+    }
+    catch(err) {
+        alert("Error!");
+    }
+
 }
