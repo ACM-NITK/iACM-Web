@@ -300,15 +300,15 @@ function editProfile() {
 function changeName() {
     var newName = document.forms["changeUserName"]["newName"].value;
     var user = firebase.auth().currentUser;
-    try {
+    if(newName!="") {
         firebase.database().ref("Leader Board/" + user.uid).update({
             person_name: newName,
         })
         document.getElementById('profileUserName').innerHTML = newName;
         alert("Name changed successfully to \'"+newName+"\'");
     }
-    catch(err) {
-        alert("Error!");
+    else {
+        alert("Name field is required");
     }
 
 }
