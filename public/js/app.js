@@ -129,7 +129,7 @@ function checkUser() {
         user = firebase.auth().currentUser;
         t++;
         if (user != null) {
-            document.getElementById('dummy').style.visibility = 'visible';
+            document.getElementById("editprofile").style.visibility = "visible";
             user = firebase.auth().currentUser;
             firebase.database().ref("Leader Board/" + user.uid + "/person_name").once('value', function (snapshot) {
                 document.getElementById('profileUserName').innerHTML = snapshot.val();
@@ -138,6 +138,7 @@ function checkUser() {
         }
         else {
             //document.getElementById('dummy').innerHTML = '';
+            document.getElementById("editprofile").style.visibility = "hidden";
             if (t == 1000) {
                 clearInterval(interv);
             }
@@ -284,4 +285,30 @@ function moveFbRecord(oldRef, newRef) {
             });
         }
     });
+}
+
+function editProfile() {
+    var user = firebase.auth().currentUser;
+    if(user==NULL) {
+        document.getElementById("editprofile").style.visibility="hidden";
+    }
+    else {
+        document.getElementById("editprofile").style.visibility="visible";
+    }
+}
+
+function changeName() {
+    var newName = document.forms["changeUserName"]["newName"].value;
+    var user = firebase.auth().currentUser;
+    if(newName!="") {
+        firebase.database().ref("Leader Board/" + user.uid).update({
+            person_name: newName,
+        })
+        document.getElementById('profileUserName').innerHTML = newName;
+        alert("Name changed successfully to \'"+newName+"\'");
+    }
+    else {
+        alert("Name field is required");
+    }
+
 }

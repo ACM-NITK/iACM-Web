@@ -64,6 +64,37 @@ html {
     border-radius: 0 0 10px 10px;
   }
   
+  #informationBox {
+    text-align: center;
+  }
+  
+  #informationBox > h1 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    display:inline-block;
+    margin: 50px 8px 8px 50px; 
+  }
+
+  #informationBox > h2 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    display:inline-block;
+    margin: 40px 8px 10px 50px; 
+    color: #7c7c7c;
+    text-transform: capitalize;
+  }
+
+  #informationBox > input[type="text"] {
+    margin: 10px 8px 60px 50px;  
+    width: 650px;
+  }
+
+  #informationBox > input[type="button"] {
+    margin: 10px 8px 60px 50px;  
+    width: 200px;
+  }
   
   
   /* TABS */
